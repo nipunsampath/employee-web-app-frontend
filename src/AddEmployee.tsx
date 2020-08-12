@@ -88,11 +88,12 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
         console.log("sending req");
         axios.post(SAVE_EMPLOYEE_ENDPOINT, data,properties)
             .then((result) => {
+                
                 if (result.status === 200)
                     alert("Employee added!");
                 else
                     alert("Could not add the employee!");
-                window.location.reload();
+                window.location.reload(true);
             });
         console.log("sending req");
     }
