@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Col, Row, FormText } from 'reactstrap';
-import { config } from './Config';
-import { getEvents } from './GraphService';
 import withAuthProvider, { AuthComponentProps } from './AuthProvider';
 import axios from 'axios';
 
@@ -35,7 +33,7 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
     async componentDidMount() {
         try {
             // Get the user's access token
-            var accessToken = await this.props.getAccessToken(config.scopes);
+            // var accessToken = await this.props.getAccessToken(config.scopes);
             // Get the user's events
             // var events = await getEvents(accessToken);
             // Update the array of events in state
@@ -100,7 +98,7 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
     }
 
     render() {
-        const { fname, lname, dob, empCategory, hours, address } = this.state;
+        const { fname, lname, dob, empCategory,address } = this.state;
         return (
             <Jumbotron>
                 <Form onSubmit={this.onSubmit}>
@@ -130,11 +128,6 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
                             <option>Contractor</option>
                         </Input>
                     </FormGroup>
-                    {/* <FormGroup>
-                        <Label for="hoursLabel">Mandatory Hours</Label>
-                        <Input type="number" name="hours" placeholder="Hours" value={hours}
-                            onChange={this.onHoursChange} />
-                    </FormGroup> */}
                     <FormGroup>
                         <Label for="NICImage">NIC</Label>
                         <Input type="file" name="nic" onChange={this.onFileChange} accept=".gif,.jpg,.jpeg,.png" />
