@@ -14,20 +14,23 @@ interface AddEmployeeState {
     file:any;
 }
 
+const initialState = {
+    fname: "",
+    lname: "",
+    dob: "",
+    empCategory: "Permanent",
+    hours: "",
+    address: "",
+    file:null,
+};
+
 class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> {
 
     constructor(props: any) {
         super(props);
 
-        this.state = {
-            fname: "",
-            lname: "",
-            dob: "",
-            empCategory: "Permanent",
-            hours: "",
-            address: "",
-            file:null,
-        };
+        this.state = initialState; 
+        
     }
 
     async componentDidMount() {
@@ -93,7 +96,7 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
                     alert("Employee added!");
                 else
                     alert("Could not add the employee!");
-                window.location.reload(true);
+                this.setState(initialState);
             });
         console.log("sending req");
     }
