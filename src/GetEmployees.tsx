@@ -3,7 +3,7 @@ import { Table } from 'reactstrap';
 import withAuthProvider, { AuthComponentProps } from './AuthProvider';
 import axios from 'axios';
 
-const GET_EMPLOYEE_ENDPOINT = "https://employee-main.azurewebsites.net/employees";
+const GET_EMPLOYEE_ENDPOINT = "https://employee-web-app.azurefd.net/employees";
 // const GET_EMPLOYEE_ENDPOINT = "http://localhost:6000/employees";
 
 interface GetEmployeeState {

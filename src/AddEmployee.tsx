@@ -72,7 +72,7 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
     }
 
     onSubmit = (e: { preventDefault: () => void; }) => {
-        const SAVE_EMPLOYEE_ENDPOINT = 'https://employee-main.azurewebsites.net/saveEmployee';
+        const SAVE_EMPLOYEE_ENDPOINT = 'https://employee-web-app.azurefd.net/saveEmployee';
         // const SAVE_EMPLOYEE_ENDPOINT = 'http://localhost:5000/saveEmployee';
 
         e.preventDefault();
