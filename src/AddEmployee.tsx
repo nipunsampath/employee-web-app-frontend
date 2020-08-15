@@ -2,6 +2,8 @@ import React from 'react';
 import { Jumbotron, Button, Form, FormGroup, Label, Input, Col, Row, FormText } from 'reactstrap';
 import withAuthProvider, { AuthComponentProps } from './AuthProvider';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 interface AddEmployeeState {
@@ -93,12 +95,29 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
             .then((result) => {
                 
                 if (result.status === 200)
-                    alert("Employee added!");
+                    // alert("Employee added!");
+                    toast.success('Employee added!', {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        });
                 else
-                    alert("Could not add the employee!");
+                toast.error('Failed to add employee!', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
                 this.setState(initialState);
             });
-        console.log("sending req");
+
     }
 
     render() {
@@ -145,8 +164,10 @@ class AddEmployee extends React.Component<AuthComponentProps, AddEmployeeState> 
                     </FormGroup>
                     <Button color="primary" type="submit">Submit</Button>
                 </Form >
+                <ToastContainer />
             </Jumbotron>
-        );
+            
+ );
     }
 }
 
