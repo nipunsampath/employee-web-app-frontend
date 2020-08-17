@@ -26,7 +26,7 @@ function WelcomeContent(props: WelcomeProps) {
     return (
       <div>
         <h4>Welcome {props.user.displayName}!</h4>
-        <p>Use the navigation bar at the top of the page to get started.</p>
+        <p>You can: </p>
         <div style={{display: 'flex', justifyContent: 'left'}}>
           <Button color="primary" onClick={handleAddEmployeeOnClick} style={{margin:'5px'}}>Add Employee</Button>
           <Button color="primary" onClick={handleSearchEmployeeOnClick} style={{margin:'5px'}}>Get Employees</Button>
